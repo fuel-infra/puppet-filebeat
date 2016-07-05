@@ -6,13 +6,12 @@ class filebeat::repo {
 
       if !defined(Apt::Source['beats']){
         apt::source { 'beats':
-          location => 'http://packages.elastic.co/beats/apt',
-          release  => 'stable',
-          repos    => 'main',
-          key      => {
-            id     => '46095ACC8548582C1A2699A9D27D666CD88E42B4',
-            source => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
-          },
+          location    => 'http://packages.elastic.co/beats/apt',
+          release     => 'stable',
+          repos       => 'main',
+          key         => 'D88E42B4',
+          key_source  => 'http://packages.elastic.co/GPG-KEY-elasticsearch',
+          include_src => false,
         }
       }
     }
